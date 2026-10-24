@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main() {
+    const int DAYS = 7;
+    double usage[DAYS];
+    double total = 0, highest = 0, limit;
+    int highestDay = 0, daysOver = 0;
+    cout << "=== Household Water Tracker ===\n";
+    cout << "Enter your daily limit in litres: ";
+    cin >> limit;
+    for (int i = 0; i < DAYS; i++) {
+        cout << "Day " << i + 1 << " usage (litres): ";
+        cin >> usage[i];
+        total += usage[i];
+
+        if (usage[i] > highest) {
+            highest = usage[i];
+            highestDay = i + 1;
+        }
+        if (usage[i] > limit) {
+            cout << "Warning: over your daily limit!\n";
+            daysOver++;
+        }
+    }
+    cout << "\n--- Weekly Summary ---\n";
+    cout << "Total: " << total << " litres\n";
+    cout << "Average: " << total / DAYS << " litres/day\n";
+    cout << "Highest: Day " << highestDay << " (" << highest << " litres)\n";
+    cout << "Days over limit: " << daysOver << " of " << DAYS << "\n";
+    return 0;
+}
