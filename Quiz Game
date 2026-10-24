@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string questions[8] = {
+ "Maths: Evaluate the integral of 3x^2 from x=0 to x=2.",
+ "Maths: If z = 3 + 4i, find |z|.",
+"Maths: Find the dot product of a=(2,3,1) and b=(4,-1,5).",
+ "Maths: For the parabola y^2 = 16x, find the x-coordinate of the focus.",
+ "Physics: A 0.5 m wire carries 4 A in a 2 T field (at right angles). Force in N?",
+ "Physics: A car starts at 5 m/s and accelerates at 3 m/s^2 for 4 s. Final speed in m/s?",
+ "Physics: Force in N on a 6 kg mass accelerating at 5 m/s^2?",
+   "Physics: Weight in N of an 8 kg mass? (take g = 10 m/s^2)"
+    };
+    int answers[8] = {8, 5, 10, 4, 4, 17, 30, 80};
+    int score = 0, reply;
+    cout << "=== Maths & Physics Quiz ===\n";
+    for (int i = 0; i < 8; i++) {
+        cout << "\nQ" << i + 1 << ". " << questions[i] << "\n> ";
+        cin >> reply;
+        if (reply == answers[i]) {
+            cout << "Correct!\n";
+            score++;
+        } else {
+            cout << "Wrong. The answer is " << answers[i] << ".\n";
+        }
+    }
+    cout << "\nYour score: " << score << "/8\n";
+    if (score >= 7) cout << "Excellent!\n";
+    else if (score >= 4) cout << "Good, keep practicing.\n";
+    else cout << "Revise the basics and try again.\n";
+    return 0;
+}
